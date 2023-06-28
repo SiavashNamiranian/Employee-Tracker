@@ -1,0 +1,29 @@
+{
+  "name": "employee-tracker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SiavashNamiranian/Employee-Tracker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SiavashNamiranian/Employee-Tracker/issues"
+  },
+  "homepage": "https://github.com/SiavashNamiranian/Employee-Tracker#readme",
+  "dependencies": {
+    "console.table": "^0.10.0",
+    "dotenv": "^16.3.1",
+    "express": "^4.17.1",
+    "inquirer": "^8.2.4",
+    "mysql2": "^2.2.5",
+    "sequelize": "^6.3.5"
+  }
+}
