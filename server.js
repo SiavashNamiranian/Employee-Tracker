@@ -71,7 +71,7 @@ function serve() {
           },
         ])
           .then((response) => {
-            db.query('INSERT INTO employees (first_name, last_name, roles, manager) VALUES("'+`${response.fn}`+'","'+`${response.ln}`+'","'+`${response.role}`+'","'+`${response.manager}`+'");', function (err, employees) {
+            db.query('INSERT INTO employees (first_name, last_name, roles, manager) VALUES("' + `${response.fn}` + '","' + `${response.ln}` + '","' + `${response.role}` + '","' + `${response.manager}` + '");', function (err, employees) {
               console.table(employees);
               serve();
             })
@@ -95,25 +95,35 @@ function serve() {
           },
         ])
           .then((response) => {
-            db.query('INSERT INTO roles VALUES (response.role,response.department,response.salary);', function (err, results) {
+            db.query('INSERT INTO roles (title, department, salary) VALUES("' + `${response.title}` + '","' + `${response.department}` + '","' + `${response.salary}` + '");', function (err, results) {
               console.table(results);
               serve();
             })
-          })} else if (response.action === 'Add Department') {
-            db.query('SELECT roles.title, department.name AS Department, salary.amount AS Salary FROM roles JOIN department ON roles.department=department.id JOIN salary ON roles.salary=salary.id;', function (err, results) {
+          })
+      } else if (response.action === 'Add Department') {
+        inquirer.prompt([
+          {
+            type: 'input',
+            message: 'what is department name?',
+            name: 'name',
+          },
+        ])
+          .then((response) => {
+            db.query('INSERT INTO department (name) VALUES("' + `${response.name}` + '");', function (err, results) {
               console.table(results);
               serve();
             })
-          } else {
-            db.query('SELECT roles.title, department.name AS Department, salary.amount AS Salary FROM roles JOIN department ON roles.department=department.id JOIN salary ON roles.salary=salary.id;', function (err, results) {
-              console.table(results);
-              serve();
-            })
-          }
-      })
-    
 
+          })
+      } else {
+        return;
+      }
+    })
 }
+
+
+
+
 
 serve();
 
