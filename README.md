@@ -9,6 +9,7 @@
 This application allows user to track their business record by keeping track of departments, roles, salary, and employee record
 
 Link: https://github.com/SiavashNamiranian/Employee-Tracker
+demo link: https://drive.google.com/file/d/1QB9IaqyA0x0e5bl_Z_l7esR95AiGariH/view?usp=sharing
 
 ## Installation(s)
 
